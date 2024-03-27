@@ -2,81 +2,78 @@
 <%@include file="parts/header.jsp" %>
 <div class="container">
     <form class="form-horizontal" method="post"
-          action="edit-user?id=${requestScope.user.id==null?0:requestScope.user.id}"
-          enctype="multipart/form-data"
     >
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Edit user:</legend>
-
-            <!-- File Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="image">
-                    <img id="previewId"
-                         src="images/${requestScope.user.image}"
-                         width="150"
-                         alt="${requestScope.user.image}">
-                    <input id="image"
-                           name="image"
-                           class="input-file" type="file"/>
-                </label>
-            </div>
+            <legend>Изменение данных Пользователя:</legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="login">Login</label>
+                <label class="col-md-4 control-label" for="user-name">Имя</label>
                 <div class="col-md-4">
                     <input
-                            id="login"
-                            name="login"
+                            id="user-name"
+                            name="user-name"
                             type="text"
-                            value="${requestScope.user.login}"
-                            placeholder="your login"
+                            value="${requestScope.user.name}"
                             class="form-control input-md"
                             required="">
-                    <span class="help-block">min 3 symbols</span>
+                    <span class="help-block">Имя пользователя</span>
                 </div>
             </div>
-
+            <br>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="user-login">Логин</label>
+                <div class="col-md-4">
+                    <input
+                            id="user-login"
+                            name="user-login"
+                            type="text"
+                            value="${requestScope.user.login}"
+                            class="form-control input-md"
+                            required="">
+                    <span class="help-block">Логин пользователя</span>
+                </div>
+            </div>
+            <br>
             <!-- Password input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
+                <label class="col-md-4 control-label" for="user-password">Пароль</label>
                 <div class="col-md-4">
-                    <input id="password"
-                           name="password"
+                    <input id="user-password"
+                           name="user-password"
                            type="password"
                            value="${requestScope.user.password}"
-                           placeholder="your password"
                            class="form-control input-md"
                            required="">
-                    <span class="help-block">min 8 symbols</span>
+                    <span class="help-block">Текущий пароль пользователя</span>
                 </div>
             </div>
-
+            <br>
 
             <!-- Select Basic -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="role">Role</label>
-                <div class="col-md-4">
-                    <select id="role" name="role" class="form-control">
-                        <c:forEach var="role" items="${applicationScope.roles}">
-                            <option value="${role}" ${role==requestScope.user.role?"selected":""}>${role}</option>
-                        </c:forEach>
-                    </select>
+            <c:if test="${sessionScope.user.role == 'ADMIN'}">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="user-role">Роль</label>
+                    <div class="col-md-4">
+                        <select id="user-role" name="user-role" class="form-control">
+                            <c:forEach var="role" items="${applicationScope.roles}">
+                                <c:if test="${role!='GUEST'}">
+                                    <option value="${role}" ${role==requestScope.user.role?"selected":""}>${role}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+                        <span class="help-block">Укажите роль пользователя</span>
+                    </div>
                 </div>
-            </div>
-
+            </c:if>
             <!-- Button (Double) -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="createButton">Operation</label>
+                <label class="col-md-4 control-label" for="update"></label>
                 <div class="col-md-8">
-                    <c:if test="${requestScope.user==null}">
-                        <button id="createButton" name="createButton" class="btn btn-success">Create</button>
-                    </c:if>
-                    <c:if test="${requestScope.user!=null}">
-                        <button id="update" name="update" class="btn btn-primary">Update</button>
-                    </c:if>
+                    <button id="update" name="update" class="btn btn-primary">Обновить</button>
                 </div>
             </div>
 
@@ -84,5 +81,3 @@
     </form>
 </div>
 <%@include file="parts/footer.jsp" %>
-
-

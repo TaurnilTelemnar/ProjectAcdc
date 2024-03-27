@@ -1,19 +1,18 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@include file="parts/header.jsp" %>
+<c:import url="parts/header.jsp"/>
 <div class="container">
 
-
     <c:forEach var="user" items="${requestScope.users}">
-        <img src="images/${user.image}" alt="images/${user.image}" width="100px">
-        Edit user <a href="edit-user?id=${user.id}">${user.login}</a> <br> <br>
+
+        Изменить пользователя <a href="edit-user?id=${user.id}">${user.name}</a>
+        Удалить пользователя <a href="delete-user?id=${user.id}">${user.name}</a> <br> <br> <br>
+
     </c:forEach>
 
     <p>
-        <a href="signup" class="top-nav">Create new user</a>
+        <a href="create-user" class="top-nav">Создать пользователя</a>
     </p>
 
-    <h3>TODO: Тут еще нужно будет подключить безопасность</h3>
-
 </div>
-<%@include file="parts/footer.jsp" %>
-
+<c:import url="parts/footer.jsp"/>

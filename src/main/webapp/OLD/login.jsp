@@ -2,29 +2,29 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <c:import url="parts/header.jsp"/>
 <div class="container">
-    <form class="form-horizontal" method="post">
+    <form class="form-horizontal" action="login" method="post">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Войти в систему</legend>
+            <legend>Login form</legend>
 
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="userLogin">Логин</label>
+                <label class="col-md-4 control-label" for="userLogin">Login</label>
                 <div class="col-md-4">
-                    <input id="userLogin" name="user-login" type="text" placeholder="set login" class="form-control input-md"
+                    <input id="userLogin" name="login" type="text" placeholder="set login" class="form-control input-md"
                            required=""
-                           value="admin">
+                           value="Carl">
 
                 </div>
             </div>
 
             <!-- Password input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="userPassword">Пароль</label>
+                <label class="col-md-4 control-label" for="userPassword">Password</label>
                 <div class="col-md-4">
-                    <input id="userPassword" name="user-password" type="password" placeholder="pass req"
+                    <input id="userPassword" name="password" type="password" placeholder="pass req"
                            class="form-control input-md" required=""
                            value="admin">
 
@@ -41,14 +41,8 @@
                 </div>
             </div>
 
-            <!-- Alert -->
-                    <c:if test="${sessionScope.error != null}">
-                        <script>
-                            alert("${sessionScope.error}");
-                            ${sessionScope.error} = null;
-                        </script>
-                    </c:if>
-
         </fieldset>
     </form>
 </div>
+<c:import url="parts/footer.jsp"/>
+
