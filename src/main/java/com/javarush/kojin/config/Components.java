@@ -3,7 +3,13 @@ package com.javarush.kojin.config;
 import com.javarush.kojin.cmd.Error;
 import com.javarush.kojin.cmd.*;
 import com.javarush.kojin.controller.HttpResolver;
+import com.javarush.kojin.repository.AnswerRepository;
+import com.javarush.kojin.repository.QuestRepository;
+import com.javarush.kojin.repository.QuestionRepository;
 import com.javarush.kojin.repository.UserRepository;
+import com.javarush.kojin.service.AnswerService;
+import com.javarush.kojin.service.QuestService;
+import com.javarush.kojin.service.QuestionService;
 import com.javarush.kojin.service.UserService;
 import com.javarush.kojin.util.Go;
 import lombok.experimental.UtilityClass;
@@ -42,11 +48,23 @@ public class Components {
         UserRepository userRepository = new UserRepository();
         UserService userService = new UserService(userRepository);
         Config config = new Config(userService);
+        AnswerRepository answerRepository = new AnswerRepository();
+        AnswerService answerService = new AnswerService(answerRepository);
+        QuestionRepository questionRepository = new QuestionRepository();
+        QuestionService questionService = new QuestionService(questionRepository);
+        QuestRepository questRepository = new QuestRepository();
+        QuestService questService = new QuestService(questRepository);
 
         components.put(HttpResolver.class, httpResolver);
         components.put(UserRepository.class, userRepository);
         components.put(UserService.class, userService);
         components.put(Config.class, config);
+        components.put(AnswerRepository.class, answerRepository);
+        components.put(AnswerService.class, answerService);
+        components.put(QuestionRepository.class, questionRepository);
+        components.put(QuestionService.class, questionService);
+        components.put(QuestRepository.class, questRepository);
+        components.put(QuestService.class, questService);
     }
 
     private static void initCommands() {
