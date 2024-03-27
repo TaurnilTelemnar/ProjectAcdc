@@ -22,7 +22,7 @@ public class DeleteUser implements Command{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        User user = getUserFromRequest(req, userService);
+        User user = getUserFromRepoById(req, userService);
         if(user == null){
             errorUserNotFound(req, resp);
             return;
@@ -34,7 +34,7 @@ public class DeleteUser implements Command{
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = getUserFromRequest(req, userService);
+        User user = getUserFromRepoById(req, userService);
         if(user == null){
             errorUserNotFound(req, resp);
             return;

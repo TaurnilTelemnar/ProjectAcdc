@@ -38,7 +38,7 @@ public class SecurityFilter extends HttpFilter {
 
         if (isGeneralSecure(req, res, userService)
                 && isEditUserSecure(req, res)
-                && isAdminSecure(req, res)) {
+                 && isAdminSecure(req, res)) {
             chain.doFilter(req, res);
         }
     }
@@ -134,9 +134,10 @@ public class SecurityFilter extends HttpFilter {
     }
 
     private boolean isAdminSecure(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if(!getCurrentCommandName(req).equals(Go.LIST_USER)) return true;
-        if(!getCurrentCommandName(req).equals(Go.DELETE_USER)) return true;
-        if(!getCurrentCommandName(req).equals(Go.CREATE_USER)) return true;
+        if(!getCurrentCommandName(req).equals(Go.LIST_USER)
+        && !getCurrentCommandName(req).equals(Go.DELETE_USER)
+        && !getCurrentCommandName(req).equals(Go.CREATE_USER)) return true;
+
 
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute(Key.USER);
