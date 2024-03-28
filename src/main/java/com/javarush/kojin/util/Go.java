@@ -29,4 +29,6 @@ public class Go {
     public static final String CREATE_QUEST_JSP = "/WEB-INF/create-quest.jsp";
     public static final String EDIT_QUEST = "/edit-quest";
     public static final String EDIT_QUEST_JSP = "/WEB-INF/edit-quest.jsp";
+    public static final String DELETE_QUEST = "/delete-quest";
+    public static final String DELETE_QUEST_JSP = "/WEB-INF/delete-quest.jsp";
 }

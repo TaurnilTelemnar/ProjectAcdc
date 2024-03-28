@@ -9,6 +9,7 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -31,7 +32,6 @@ public class CreateUser implements Command{
             errorUserAlreadyExists(req, resp);
             return;
         }
-
         Role userRole = Role.valueOf(req.getParameter(Key.USER_ROLE));
         userRole = userRole.equals(Role.GUEST)
                 ? Role.USER
@@ -47,12 +47,5 @@ public class CreateUser implements Command{
         userService.createUser(user);
         resp.sendRedirect(Key.FORMAT_LINK_ID.formatted(Go.EDIT_USER, user.getId()));
     }
-
-//    private boolean isUserLoginAlreadyExists(HttpServletRequest req, HttpServletResponse resp, String userLogin) throws IOException {
-//        User user = User.builder()
-//                .login(userLogin)
-//                .build();
-//        return isUserAlreadyExists(req, resp, user, userService);
-//    }
 
 }

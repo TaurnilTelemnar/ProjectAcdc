@@ -45,7 +45,7 @@
                     <c:if test="${sessionScope.error != null}">
                         <script>
                             alert("${sessionScope.error}");
-                            ${sessionScope.error} = null;
+                            ${sessionScope.error = null}
                         </script>
                     </c:if>
 

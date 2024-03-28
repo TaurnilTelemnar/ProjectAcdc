@@ -3,4 +3,102 @@
          xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+<!--        <filter>-->
+<!--            <filter-name>UnknownPage</filter-name>-->
+<!--            <filter-class>com.javarush.kojin.filter.UnknownPageFilter</filter-class>-->
+<!--        </filter>-->
+<!--        <filter-mapping>-->
+<!--            <filter-name>UnknownPage</filter-name>-->
+<!--            <url-pattern>/*</url-pattern>-->
+<!--        </filter-mapping>-->
+
+    <filter>
+        <filter-name>UnknownUser</filter-name>
+        <filter-class>com.javarush.kojin.filter.UnknownUserFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UnknownUser</filter-name>
+        <url-pattern>/</url-pattern>
+        <url-pattern>/home</url-pattern>
+<!--        <url-pattern>/login</url-pattern>-->
+        <url-pattern>/profile</url-pattern>
+        <url-pattern>/logout</url-pattern>
+        <url-pattern>/edit-user</url-pattern>
+        <url-pattern>/error</url-pattern>
+        <url-pattern>/list-user</url-pattern>
+        <url-pattern>/delete-user</url-pattern>
+        <url-pattern>/signup</url-pattern>
+        <url-pattern>/create-user</url-pattern>
+        <url-pattern>/create-quest</url-pattern>
+        <url-pattern>/edit-quest</url-pattern>
+        <url-pattern>/delete-quest</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
+        <filter-name>IncorrectReqID</filter-name>
+        <filter-class>com.javarush.kojin.filter.IncorrectRequestIdFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>IncorrectReqID</filter-name>
+        <url-pattern>/delete-user</url-pattern>
+        <url-pattern>/edit-user</url-pattern>
+        <url-pattern>/edit-quest</url-pattern>
+        <url-pattern>/delete-quest</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>GuestDenied</filter-name>
+        <filter-class>com.javarush.kojin.filter.GuestDeniedFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>GuestDenied</filter-name>
+        <url-pattern>/create-quest</url-pattern>
+        <url-pattern>/edit-quest</url-pattern>
+        <url-pattern>/delete-quest</url-pattern>
+        <url-pattern>/create-user</url-pattern>
+        <url-pattern>/edit-user</url-pattern>
+        <url-pattern>/delete-user</url-pattern>
+        <url-pattern>/list-user</url-pattern>
+        <url-pattern>/profile</url-pattern>
+        <url-pattern>/logout</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>DeniedUser</filter-name>
+        <filter-class>com.javarush.kojin.filter.UserDeniedFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DeniedUser</filter-name>
+        <url-pattern>/create-user</url-pattern>
+        <url-pattern>/list-user</url-pattern>
+        <url-pattern>/delete-user</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AcceptedUser</filter-name>
+        <filter-class>com.javarush.kojin.filter.UserAccessFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AcceptedUser</filter-name>
+        <url-pattern>/edit-user</url-pattern>
+        <url-pattern>/edit-quest</url-pattern>
+        <url-pattern>/create-quest</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AcceptedAdmin</filter-name>
+        <filter-class>com.javarush.kojin.filter.AdminAccessFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AcceptedAdmin</filter-name>
+        <url-pattern>/edit-user</url-pattern>
+        <url-pattern>/list-user</url-pattern>
+        <url-pattern>/delete-user</url-pattern>
+        <url-pattern>/create-user</url-pattern>
+        <url-pattern>/edit-quest</url-pattern>
+        <url-pattern>/delete-user</url-pattern>
+    </filter-mapping>
+
+
 </web-app>

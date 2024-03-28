@@ -79,6 +79,11 @@ public class Components {
         Command deleteUser = new DeleteUser(getComponent(UserService.class));
         Command signup = new Signup(getComponent(UserService.class));
         Command createUser = new CreateUser(getComponent(UserService.class));
+        Command createQuest = new CreateQuest(
+                getComponent(QuestService.class),
+                getComponent(QuestionService.class),
+                getComponent(AnswerService.class),
+                getComponent(UserService.class));
 
 
         commands.put(Go.HOME, home);
@@ -91,6 +96,7 @@ public class Components {
         commands.put(Go.DELETE_USER, deleteUser);
         commands.put(Go.SIGNUP, signup);
         commands.put(Go.CREATE_USER, createUser);
+        commands.put(Go.CREATE_QUEST, createQuest);
 
     }
 }

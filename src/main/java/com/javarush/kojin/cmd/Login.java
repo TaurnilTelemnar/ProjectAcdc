@@ -39,14 +39,6 @@ public class Login implements Command{
             resp.sendRedirect(Go.LOGIN);
         }
     }
-//    private User getUserFromRequest(HttpServletRequest req, UserService userService){
-//        User pattern = User.builder()
-//                .login(req.getParameter(Key.USER_LOGIN))
-//                .password(req.getParameter(Key.USER_PASSWORD))
-//                .build();
-//        Optional<User> optionalUser = userService.getUser(pattern);
-//        return optionalUser.orElse(null);
-//    }
 
 
 }

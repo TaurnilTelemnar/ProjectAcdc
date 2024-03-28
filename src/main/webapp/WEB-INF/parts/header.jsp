@@ -15,6 +15,9 @@
         <c:if test="${sessionScope.user != null && sessionScope.user.role == 'ADMIN'}">
             <li><a href="list-user" class="nav-link px-2">Пользователи</a></li>
         </c:if>
+        <c:if test="${sessionScope.user != null && (sessionScope.user.role == 'ADMIN' || sessionScope.user.role == 'USER')}">
+            <li><a href="create-quest" class="nav-link px-2">Создать квест</a></li>
+        </c:if>
     </ul>
     <ul class="nav col-md-3 text-end">
         <c:if test="${sessionScope.user != null}">
