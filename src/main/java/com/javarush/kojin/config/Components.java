@@ -82,8 +82,7 @@ public class Components {
         Command createQuest = new CreateQuest(
                 getComponent(QuestService.class),
                 getComponent(QuestionService.class),
-                getComponent(AnswerService.class),
-                getComponent(UserService.class));
+                getComponent(AnswerService.class));
 
 
         commands.put(Go.HOME, home);

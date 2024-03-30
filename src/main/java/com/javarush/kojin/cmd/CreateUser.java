@@ -9,12 +9,12 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CreateUser implements Command{
-    private UserService userService;
+    private final UserService userService;
 
     public CreateUser(UserService userService) {
         this.userService = userService;
@@ -41,6 +41,7 @@ public class CreateUser implements Command{
                 .login(req.getParameter(Key.USER_LOGIN))
                 .password(req.getParameter(Key.USER_PASSWORD))
                 .role(userRole)
+                .userQuests(new ArrayList<>())
                 .build();
 
 

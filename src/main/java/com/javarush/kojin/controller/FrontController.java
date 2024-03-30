@@ -3,6 +3,7 @@ package com.javarush.kojin.controller;
 import com.javarush.kojin.cmd.Command;
 import com.javarush.kojin.config.Components;
 import com.javarush.kojin.config.Config;
+import com.javarush.kojin.entity.GameState;
 import com.javarush.kojin.entity.Role;
 import com.javarush.kojin.util.Go;
 import com.javarush.kojin.util.Key;
@@ -22,7 +23,8 @@ import java.util.regex.Pattern;
         Go.PROFILE, Go.LOGOUT,
         Go.EDIT_USER, Go.ERROR,
         Go.LIST_USER, Go.DELETE_USER,
-        Go.SIGNUP, Go.CREATE_USER
+        Go.SIGNUP, Go.CREATE_USER,
+        Go.CREATE_QUEST
 })
 public class FrontController extends HttpServlet {
 
@@ -33,6 +35,7 @@ public class FrontController extends HttpServlet {
         httpResolver = Components.getComponent(HttpResolver.class);
         Components.getComponent(Config.class).addStartData();
         config.getServletContext().setAttribute(Key.ROLES, Role.values());
+        config.getServletContext().setAttribute(Key.GAME_STATES, GameState.values());
     }
 
     @Override

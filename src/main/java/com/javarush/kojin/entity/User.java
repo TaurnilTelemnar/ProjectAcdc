@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,4 +19,5 @@ public class User implements AbstractEntity{
     private String password;
     private Role role;
     private Long imageId;
+    private Collection<Quest> userQuests = new ArrayList<>();
 }

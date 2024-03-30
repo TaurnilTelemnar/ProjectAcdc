@@ -3,14 +3,14 @@
          xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
-<!--        <filter>-->
-<!--            <filter-name>UnknownPage</filter-name>-->
-<!--            <filter-class>com.javarush.kojin.filter.UnknownPageFilter</filter-class>-->
-<!--        </filter>-->
-<!--        <filter-mapping>-->
-<!--            <filter-name>UnknownPage</filter-name>-->
-<!--            <url-pattern>/*</url-pattern>-->
-<!--        </filter-mapping>-->
+        <filter>
+            <filter-name>UnknownPage</filter-name>
+            <filter-class>com.javarush.kojin.filter.UnknownPageFilter</filter-class>
+        </filter>
+        <filter-mapping>
+            <filter-name>UnknownPage</filter-name>
+            <url-pattern>/*</url-pattern>
+        </filter-mapping>
 
     <filter>
         <filter-name>UnknownUser</filter-name>
@@ -83,7 +83,7 @@
         <filter-name>AcceptedUser</filter-name>
         <url-pattern>/edit-user</url-pattern>
         <url-pattern>/edit-quest</url-pattern>
-        <url-pattern>/create-quest</url-pattern>
+        <url-pattern>/delete-quest</url-pattern>
     </filter-mapping>
 
     <filter>

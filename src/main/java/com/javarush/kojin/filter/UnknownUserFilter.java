@@ -8,7 +8,6 @@ import com.javarush.kojin.util.Go;
 import com.javarush.kojin.util.Key;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -39,8 +38,6 @@ public class UnknownUserFilter extends HttpFilter {
         } else {
             chain.doFilter(req, res);
         }
-
-
     }
 
     private User getUserFromSession(HttpSession session) {
