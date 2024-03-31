@@ -14,10 +14,6 @@ public class QuestionService {
         questionRepository.create(question);
     }
 
-    public void updateQuestion(Question question){
-        questionRepository.update(question);
-    }
-
     public Question getQuestion(Long questionId) {
         return questionRepository.get(questionId);
     }

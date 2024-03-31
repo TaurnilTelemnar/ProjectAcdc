@@ -17,10 +17,6 @@ public class QuestService {
         questRepository.create(quest);
     }
 
-    public void updateQuest(Quest quest) {
-        questRepository.update(quest);
-    }
-
     public Collection<Quest> getAll() {
         return questRepository.getAll();
     }

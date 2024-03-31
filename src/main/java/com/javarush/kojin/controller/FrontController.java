@@ -20,8 +20,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebServlet({
-        Go.INDEX, Go.HOME, Go.LOGIN,
-        Go.PROFILE, Go.LOGOUT,
+        Go.INDEX, Go.HOME, Go.START,
+        Go.LOGIN, Go.PROFILE, Go.LOGOUT,
         Go.EDIT_USER, Go.ERROR,
         Go.LIST_USER, Go.DELETE_USER,
         Go.SIGNUP, Go.CREATE_USER,

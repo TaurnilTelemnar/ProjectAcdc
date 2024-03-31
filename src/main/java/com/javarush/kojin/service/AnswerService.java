@@ -14,10 +14,6 @@ public class AnswerService {
         answerRepository.create(answer);
     }
 
-    public void updateAnswer(Answer answer) {
-        answerRepository.update(answer);
-    }
-
     public Answer getAnswer(Long answerId) {
         return answerRepository.get(answerId);
     }

@@ -4,7 +4,6 @@ import com.javarush.kojin.entity.*;
 import com.javarush.kojin.service.AnswerService;
 import com.javarush.kojin.service.QuestService;
 import com.javarush.kojin.service.QuestionService;
-import com.javarush.kojin.service.UserService;
 import com.javarush.kojin.util.Go;
 import com.javarush.kojin.util.Key;
 import jakarta.servlet.RequestDispatcher;
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class CreateQuest implements Command {
     private final QuestService questService;

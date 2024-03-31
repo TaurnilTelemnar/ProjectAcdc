@@ -21,7 +21,6 @@ public class Key {
     public static final String ERROR = "error";
     public static final String ERROR_NO_PERMISSIONS  = "У вас недостаточно прав для перехода на данную страницу.";
     public static final String ERROR_404 = "Страница не найдена.";
-    public static final String ERROR_UNKNOWN  = "Произошла ошибка...";
     public static final String ERROR_USER_NOT_FOUND = "Неверный логин или пароль";
     public static final String ERROR_USER_ALREADY_EXISTS = "Указанный логин уже существует";
     public static final String FORMAT_LINK_ID = "%s?id=%d";
@@ -34,8 +33,6 @@ public class Key {
     public static final String DELETE_QUESTION = "deleteQuestion";
     public static final String SAVE_QUESTION = "saveQuestion";
     public static final String ANSWER_ID = "answerId";
-    public static final String SAVE_ANSWER_ID = "saveAnswerId";
-    public static final String DELETE_ANSWER_ID = "deleteAnswerId";
     public static final String ANSWER_TEXT = "answerText";
     public static final String ANSWER_NEXT_QUESTION_ID = "answerNextQuestionId";
     public static final String ADD_ANSWER = "addAnswer";

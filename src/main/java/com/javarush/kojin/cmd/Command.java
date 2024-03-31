@@ -47,7 +47,7 @@ public interface Command {
     }
 
 
-    default boolean isUserLoginAlreadyExists(String userLogin, UserService userService) throws IOException {
+    default boolean isUserLoginAlreadyExists(String userLogin, UserService userService) {
         User pattern = User.builder()
                 .login(userLogin)
                 .build();
