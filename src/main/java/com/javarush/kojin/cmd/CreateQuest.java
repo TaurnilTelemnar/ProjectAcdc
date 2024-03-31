@@ -61,84 +61,24 @@ public class CreateQuest implements Command {
         Quest draft = (Quest) session.getAttribute(Key.QUEST_DRAFT);
 
         if (req.getParameter(Key.SAVE_QUESTION) != null) {
-            Question question = questionService.getQuestion(Long.parseLong(req.getParameter(Key.QUESTION_ID)));
-
-            question.setName(req.getParameter(Key.QUESTION_NAME));
-            question.setText(req.getParameter(Key.QUESTION_TEXT));
-
-            GameState questionGameState = GameState.valueOf(req.getParameter(Key.QUESTION_GAME_STATE));
-            question.setGameState(questionGameState);
-        }
-
-
-        if (req.getParameter(Key.ADD_QUESTION) != null) {
-            Question question = Question.builder()
-                    .questId(draft.getId())
-                    .answers(new ArrayList<>())
-                    .build();
-            draft.getQuestions().add(question);
-            questionService.createQuestion(question);
-        }
-
-        if (req.getParameter(Key.DELETE_QUESTION) != null) {
-            Long questionId = Long.parseLong(req.getParameter(Key.QUESTION_ID));
-            draft.setQuestions(
-                    draft.getQuestions()
-                            .stream()
-                            .filter(q -> !q.getId().equals(questionId))
-                            .collect(Collectors.toList()));
-            questionService.deleteQuestion(questionId);
-        }
-
-        if (req.getParameter(Key.ADD_ANSWER) != null) {
-            Long questionId = Long.parseLong(req.getParameter(Key.QUESTION_ID));
-            Question question = questionService.getQuestion(questionId);
-
-            Answer answer = Answer.builder()
-                    .questionId(questionId)
-                    .build();
-
-            answerService.createAnswer(answer);
-
-            question.getAnswers().add(answer);
-        }
-
-        if (req.getParameter(Key.SAVE_ANSWER) != null) {
-            Long answerId = Long.parseLong(req.getParameter(Key.ANSWER_ID));
-            Answer answer = answerService.getAnswer(answerId);
-
-            answer.setText(req.getParameter(Key.ANSWER_TEXT));
-            Long nextQuestionId =
-                    req.getParameter(Key.ANSWER_NEXT_QUESTION_ID) != null
-                            ? Long.parseLong(req.getParameter(Key.ANSWER_NEXT_QUESTION_ID))
-                            : null;
-            answer.setNextQuestionId(nextQuestionId);
-        }
-
-        if (req.getParameter(Key.DELETE_ANSWER) != null) {
-            Long answerId = Long.parseLong(req.getParameter(Key.ANSWER_ID));
-            Long questionId = Long.parseLong(req.getParameter(Key.QUESTION_ID));
-
-            Question question = questionService.getQuestion(questionId);
-
-            question.setAnswers(
-                    question.getAnswers()
-                            .stream()
-                            .filter(a -> !a.getId().equals(answerId))
-                            .collect(Collectors.toList()));
-
-            answerService.deleteAnswer(answerId);
-        }
-
-        if (req.getParameter(Key.SAVE_QUEST_PARAMS) != null) {
-            draft.setName(req.getParameter(Key.QUEST_NAME));
-            System.out.println(req.getParameter(Key.QUEST_START_QUESTION_ID));
-            System.out.println(req.getParameter("questStartQuestionName"));
-            Long startQuestionId =
-                    req.getParameter(Key.QUEST_START_QUESTION_ID) != null
-                            ? Long.parseLong(req.getParameter(Key.QUEST_START_QUESTION_ID))
-                            : null;
-            draft.setStartQuestionId(startQuestionId);
+            saveQuestion(questionService, req);
+        }else if (req.getParameter(Key.ADD_QUESTION) != null) {
+            addQuestion(questionService, draft);
+        }else if (req.getParameter(Key.DELETE_QUESTION) != null) {
+            deleteQuestion(questionService, req, draft);
+        }else if (req.getParameter(Key.ADD_ANSWER) != null) {
+            addAnswer(questionService, answerService, req);
+        }else if (req.getParameter(Key.SAVE_ANSWER) != null) {
+            saveAnswer(answerService, req);
+        }else if (req.getParameter(Key.DELETE_ANSWER) != null) {
+            deleteAnswer(questionService, answerService, req);
+        }else if (req.getParameter(Key.SAVE_QUEST_PARAMS) != null) {
+            saveQuestParams(draft, req);
+        }else if(req.getParameter(Key.PUBLISH_QUEST) != null){
+            session.removeAttribute(Key.QUEST_DRAFT);
+            draft.setIsDraft(false);
+            resp.sendRedirect(Key.FORMAT_LINK_ID.formatted(Go.PLAY, draft.getId()));
+            return;
         }
 
 

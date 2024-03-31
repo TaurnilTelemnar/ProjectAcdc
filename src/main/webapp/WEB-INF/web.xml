@@ -97,7 +97,7 @@
         <url-pattern>/delete-user</url-pattern>
         <url-pattern>/create-user</url-pattern>
         <url-pattern>/edit-quest</url-pattern>
-        <url-pattern>/delete-user</url-pattern>
+        <url-pattern>/delete-quest</url-pattern>
     </filter-mapping>
 
 

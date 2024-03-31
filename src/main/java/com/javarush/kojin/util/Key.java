@@ -10,11 +10,13 @@ public class Key {
     public static final String USER_NAME = "user-name";
     public static final String USER_PASSWORD = "user-password";
     public static final String USER_IMAGE_ID = "user-image-id";
+    public static final String QUEST = "quest";
     public static final String QUESTS = "quests";
     public static final String QUEST_DRAFT = "draft";
     public static final String SAVE_QUEST_PARAMS = "saveQuestParams";
     public static final String QUEST_START_QUESTION_ID = "questStartQuestionId";
     public static final String QUEST_NAME = "questName";
+    public static final String PUBLISH_QUEST = "publishQuest";
     public static final String ROLES = "roles";
     public static final String ERROR = "error";
     public static final String ERROR_NO_PERMISSIONS  = "У вас недостаточно прав для перехода на данную страницу.";
@@ -39,5 +41,7 @@ public class Key {
     public static final String ADD_ANSWER = "addAnswer";
     public static final String SAVE_ANSWER = "saveAnswer";
     public static final String DELETE_ANSWER = "deleteAnswer";
+
+
 
 }

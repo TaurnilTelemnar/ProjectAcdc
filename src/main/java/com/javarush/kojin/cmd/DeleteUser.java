@@ -24,7 +24,7 @@ public class DeleteUser implements Command{
 
         User user = getUserFromRepoById(req, userService);
         if(user == null){
-            errorUserNotFound(req, resp);
+            errorNotFound(req, resp);
             return;
         }
         req.setAttribute(Key.USER, user);
@@ -36,7 +36,7 @@ public class DeleteUser implements Command{
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = getUserFromRepoById(req, userService);
         if(user == null){
-            errorUserNotFound(req, resp);
+            errorNotFound(req, resp);
             return;
         }
 

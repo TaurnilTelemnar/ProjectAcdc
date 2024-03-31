@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,7 +25,8 @@ import java.util.regex.Pattern;
         Go.EDIT_USER, Go.ERROR,
         Go.LIST_USER, Go.DELETE_USER,
         Go.SIGNUP, Go.CREATE_USER,
-        Go.CREATE_QUEST
+        Go.CREATE_QUEST, Go.DELETE_QUEST,
+        Go.EDIT_QUEST
 })
 public class FrontController extends HttpServlet {
 
@@ -33,7 +35,7 @@ public class FrontController extends HttpServlet {
     @Override
     public void init(ServletConfig config) {
         httpResolver = Components.getComponent(HttpResolver.class);
-        Components.getComponent(Config.class).addStartData();
+        Objects.requireNonNull(Components.getComponent(Config.class)).addStartData();
         config.getServletContext().setAttribute(Key.ROLES, Role.values());
         config.getServletContext().setAttribute(Key.GAME_STATES, GameState.values());
     }

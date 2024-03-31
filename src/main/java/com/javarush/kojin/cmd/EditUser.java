@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.Optional;
 
 
 public class EditUser implements Command{
@@ -25,7 +24,7 @@ public class EditUser implements Command{
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = getUserFromRepoById(req, userService);
         if(user == null){
-            errorUserNotFound(req, resp);
+            errorNotFound(req, resp);
             return;
         }
         req.setAttribute(Key.USER, user);
@@ -38,7 +37,7 @@ public class EditUser implements Command{
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = getUserFromRepoById(req, userService);
         if(user == null){
-            errorUserNotFound(req, resp);
+            errorNotFound(req, resp);
             return;
         }
         user.setName(req.getParameter(Key.USER_NAME));
