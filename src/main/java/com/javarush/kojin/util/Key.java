@@ -9,7 +9,6 @@ public class Key {
     public static final String USER_LOGIN = "user-login";
     public static final String USER_NAME = "user-name";
     public static final String USER_PASSWORD = "user-password";
-    public static final String USER_IMAGE_ID = "user-image-id";
     public static final String QUEST = "quest";
     public static final String QUESTS = "quests";
     public static final String QUEST_DRAFT = "draft";

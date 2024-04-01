@@ -19,5 +19,4 @@ public class Question implements AbstractEntity{
     private String name;
     private String text;
     private GameState gameState;
-    private Long imageId;
 }

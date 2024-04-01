@@ -43,6 +43,7 @@ public class Play implements Command {
         userGame.setGameState(question.getGameState());
         req.setAttribute(Key.GAME, userGame);
         req.setAttribute(Key.QUESTION, question);
+        req.setAttribute(Key.QUEST, userQuest);
 
         RequestDispatcher requestDispatcherPlayJsp = req.getRequestDispatcher(Key.FORMAT_LINK_ID.formatted(Go.PLAY_JSP, userQuest.getId()));
         requestDispatcherPlayJsp.forward(req, resp);

@@ -1,7 +1,7 @@
 <%@include file="parts/header.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!-- Форма игры-->
-<legend>Игра</legend>
+<legend>${requestScope.quest.name}</legend>
 <div class="container">
 
     <jsp:useBean id="user" scope="session" type="com.javarush.kojin.entity.User"/>

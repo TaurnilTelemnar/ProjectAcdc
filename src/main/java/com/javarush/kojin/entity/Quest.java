@@ -19,5 +19,4 @@ public class Quest implements AbstractEntity{
     private Long startQuestionId;
     private Collection<Question> questions = new ArrayList<>();
     private Boolean isDraft;
-    private Long imageId;
 }

@@ -14,7 +14,6 @@ public class QuestRepository extends BaseRepository<Quest> {
                 .filter(q -> nullOrEquals(pattern.getAuthorId(), q.getAuthorId()))
                 .filter(q -> nullOrEquals(pattern.getStartQuestionId(), q.getStartQuestionId()))
                 .filter(q -> nullOrEquals(pattern.getQuestions(), q.getQuestions()))
-                .filter(q -> nullOrEquals(pattern.getIsDraft(), q.getIsDraft()))
-                .filter(q -> nullOrEquals(pattern.getImageId(), q.getImageId()));
+                .filter(q -> nullOrEquals(pattern.getIsDraft(), q.getIsDraft()));
     }
 }

@@ -18,7 +18,6 @@ public class User implements AbstractEntity{
     private String login;
     private String password;
     private Role role;
-    private Long imageId;
     private Collection<Quest> userQuests = new ArrayList<>();
     private Collection<Game> userGames = new ArrayList<>();
 }
