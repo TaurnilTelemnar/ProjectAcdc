@@ -20,6 +20,7 @@
         <filter-name>UnknownUser</filter-name>
         <url-pattern>/</url-pattern>
         <url-pattern>/home</url-pattern>
+        <url-pattern>/play</url-pattern>
 <!--        <url-pattern>/login</url-pattern>-->
         <url-pattern>/profile</url-pattern>
         <url-pattern>/logout</url-pattern>
@@ -45,6 +46,7 @@
         <url-pattern>/edit-user</url-pattern>
         <url-pattern>/edit-quest</url-pattern>
         <url-pattern>/delete-quest</url-pattern>
+        <url-pattern>/play</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -75,16 +77,6 @@
         <url-pattern>/delete-user</url-pattern>
     </filter-mapping>
 
-    <filter>
-        <filter-name>AcceptedUser</filter-name>
-        <filter-class>com.javarush.kojin.filter.UserAccessFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AcceptedUser</filter-name>
-        <url-pattern>/edit-user</url-pattern>
-        <url-pattern>/edit-quest</url-pattern>
-        <url-pattern>/delete-quest</url-pattern>
-    </filter-mapping>
 
     <filter>
         <filter-name>AcceptedAdmin</filter-name>

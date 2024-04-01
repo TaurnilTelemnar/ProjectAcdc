@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Signup implements Command{
     private final UserService userService;
@@ -38,6 +39,8 @@ public class Signup implements Command{
                 .login(req.getParameter(Key.USER_LOGIN))
                 .password(req.getParameter(Key.USER_PASSWORD))
                 .role(Role.USER)
+                .userQuests(new ArrayList<>())
+                .userGames(new ArrayList<>())
                 .build();
         userService.createUser(user);
         HttpSession session = req.getSession();

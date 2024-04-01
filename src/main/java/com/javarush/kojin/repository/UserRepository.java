@@ -15,6 +15,7 @@ public class UserRepository extends BaseRepository<User> {
                 .filter(u -> nullOrEquals(pattern.getPassword(), u.getPassword()))
                 .filter(u -> nullOrEquals(pattern.getRole(), u.getRole()))
                 .filter(u -> nullOrEquals(pattern.getImageId(), u.getImageId()))
-                .filter(u -> nullOrEquals(pattern.getUserQuests(), u.getUserQuests()));
+                .filter(u -> nullOrEquals(pattern.getUserQuests(), u.getUserQuests()))
+                .filter(u -> nullOrEquals(pattern.getUserGames(), u.getUserGames()));
     }
 }

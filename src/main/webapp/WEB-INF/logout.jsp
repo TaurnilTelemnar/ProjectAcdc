@@ -1,11 +1,8 @@
 <%@include file="parts/header.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <div class="container">
-
-
     <div class="px-4 py-5 my-5 text-center">
         <p class="lead mb-4">
-
         <div class="col-lg-6 mx-auto">
             <form class="form-horizontal" method="post">
                 <legend>Вы действительно хотите выйти?</legend>

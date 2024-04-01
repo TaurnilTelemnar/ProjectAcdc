@@ -3,14 +3,8 @@ package com.javarush.kojin.config;
 import com.javarush.kojin.cmd.Error;
 import com.javarush.kojin.cmd.*;
 import com.javarush.kojin.controller.HttpResolver;
-import com.javarush.kojin.repository.AnswerRepository;
-import com.javarush.kojin.repository.QuestRepository;
-import com.javarush.kojin.repository.QuestionRepository;
-import com.javarush.kojin.repository.UserRepository;
-import com.javarush.kojin.service.AnswerService;
-import com.javarush.kojin.service.QuestService;
-import com.javarush.kojin.service.QuestionService;
-import com.javarush.kojin.service.UserService;
+import com.javarush.kojin.repository.*;
+import com.javarush.kojin.service.*;
 import com.javarush.kojin.util.Go;
 import lombok.experimental.UtilityClass;
 
@@ -47,13 +41,15 @@ public class Components {
         HttpResolver httpResolver = new HttpResolver();
         UserRepository userRepository = new UserRepository();
         UserService userService = new UserService(userRepository);
-        Config config = new Config(userService);
         AnswerRepository answerRepository = new AnswerRepository();
         AnswerService answerService = new AnswerService(answerRepository);
         QuestionRepository questionRepository = new QuestionRepository();
         QuestionService questionService = new QuestionService(questionRepository);
         QuestRepository questRepository = new QuestRepository();
         QuestService questService = new QuestService(questRepository);
+        GameRepository gameRepository = new GameRepository();
+        GameService gameService = new GameService(gameRepository);
+        Config config = new Config(userService, questService, questionService, answerService);
 
         components.put(HttpResolver.class, httpResolver);
         components.put(UserRepository.class, userRepository);
@@ -65,6 +61,8 @@ public class Components {
         components.put(QuestionService.class, questionService);
         components.put(QuestRepository.class, questRepository);
         components.put(QuestService.class, questService);
+        components.put(GameRepository.class, gameRepository);
+        components.put(GameService.class, gameService);
     }
 
     private static void initCommands() {
@@ -92,6 +90,11 @@ public class Components {
                 getComponent(QuestService.class),
                 getComponent(QuestionService.class),
                 getComponent(AnswerService.class));
+        Command play = new Play(
+                getComponent(GameService.class),
+                getComponent(QuestService.class),
+                getComponent(QuestionService.class));
+
 
 
         commands.put(Go.HOME, home);
@@ -107,5 +110,6 @@ public class Components {
         commands.put(Go.CREATE_QUEST, createQuest);
         commands.put(Go.DELETE_QUEST, deleteQuest);
         commands.put(Go.EDIT_QUEST, editQuest);
+        commands.put(Go.PLAY, play);
     }
 }

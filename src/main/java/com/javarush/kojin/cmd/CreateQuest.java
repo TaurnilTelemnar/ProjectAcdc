@@ -1,6 +1,7 @@
 package com.javarush.kojin.cmd;
 
-import com.javarush.kojin.entity.*;
+import com.javarush.kojin.entity.Quest;
+import com.javarush.kojin.entity.User;
 import com.javarush.kojin.service.AnswerService;
 import com.javarush.kojin.service.QuestService;
 import com.javarush.kojin.service.QuestionService;

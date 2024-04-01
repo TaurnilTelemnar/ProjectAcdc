@@ -25,6 +25,7 @@ public class Key {
     public static final String ERROR_USER_ALREADY_EXISTS = "Указанный логин уже существует";
     public static final String FORMAT_LINK_ID = "%s?id=%d";
     public static final String GAME_STATES = "gameStates";
+    public static final String QUESTION = "question";
     public static final String QUESTION_ID = "questionId";
     public static final String QUESTION_NAME = "questionName";
     public static final String QUESTION_TEXT = "questionText";
@@ -38,7 +39,7 @@ public class Key {
     public static final String ADD_ANSWER = "addAnswer";
     public static final String SAVE_ANSWER = "saveAnswer";
     public static final String DELETE_ANSWER = "deleteAnswer";
-
-
+    public static final String GAME = "game";
+    public static final String NEW_GAME = "newGame";
 
 }

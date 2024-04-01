@@ -42,6 +42,7 @@ public class CreateUser implements Command{
                 .password(req.getParameter(Key.USER_PASSWORD))
                 .role(userRole)
                 .userQuests(new ArrayList<>())
+                .userGames(new ArrayList<>())
                 .build();
 
 
