@@ -123,6 +123,7 @@ public class Config {
                 .build();
         questionService.createQuestion(taskOne);
         task.setStartQuestionId(taskOne.getId());
+        task.getQuestions().add(taskOne);
 
 
         Question taskTwo = Question.builder()
@@ -133,6 +134,7 @@ public class Config {
                 .answers(new ArrayList<>())
                 .build();
         questionService.createQuestion(taskTwo);
+        task.getQuestions().add(taskTwo);
 
         Question taskThree = Question.builder()
                 .name("Крымский мостик кЭпа")
@@ -142,6 +144,7 @@ public class Config {
                 .answers(new ArrayList<>())
                 .build();
         questionService.createQuestion(taskThree);
+        task.getQuestions().add(taskThree);
 
         Answer startOne = Answer.builder()
                 .text("Принять вызов")
@@ -167,6 +170,7 @@ public class Config {
                 .answers(new ArrayList<>())
                 .build();
         questionService.createQuestion(taskFour);
+        task.getQuestions().add(taskFour);
 
         Question taskFive = Question.builder()
                 .name("Ты кто такой? Давай приседания!")
@@ -176,6 +180,7 @@ public class Config {
                 .answers(new ArrayList<>())
                 .build();
         questionService.createQuestion(taskFive);
+        task.getQuestions().add(taskFive);
 
         Answer comeOnToMaineShishkaOne = Answer.builder()
                 .text("Подняться на мостик")
@@ -204,6 +209,7 @@ public class Config {
                 .answers(new ArrayList<>())
                 .build();
         questionService.createQuestion(taskSix);
+        task.getQuestions().add(taskSix);
 
         Question taskSeven = Question.builder()
                 .name("Возвращение блудного попугая")
@@ -213,6 +219,7 @@ public class Config {
                 .answers(new ArrayList<>())
                 .build();
         questionService.createQuestion(taskSeven);
+        task.getQuestions().add(taskSeven);
 
         Answer whoAreYouOne = Answer.builder()
                 .text("Рассказать о себе правду")
