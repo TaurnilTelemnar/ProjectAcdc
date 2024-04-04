@@ -135,6 +135,12 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>**/entity/**</exclude>
+                        <exclude>**/filter/**</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
