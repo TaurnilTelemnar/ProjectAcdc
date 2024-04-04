@@ -23,6 +23,12 @@ public class Components {
         initCommands();
     }
 
+    public static void reLoad(){
+        components.clear();
+        commands.clear();
+        init();
+    }
+
 
     @SuppressWarnings("unchecked")
     public static<T> T getComponent(Class<T> aClass){
